@@ -27,32 +27,43 @@
   <header class="m-auto">
   </header>
 
-  <main class="p-5">
+<main class="p-5">
   <div class="container">
-    <h1>Te amo</h1>
+    <h1 class="p-5 display-1 fw-bold">Te amo</h1>
     <p>
       <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-        <i class="bi bi-balloon-heart fs-1"></i>
+        <i class="bi bi-suit-heart display-1"></i>
       </button>
     </p>
-    <div>
-      <div class="collapse collapse-horizontal text-black" id="collapseWidthExample">
-        <div class="card card-body" style="width: 300px;">
-          <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Y entonces quise hacerte una babosada sjkdsajd</button>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    ...
-  </div>
-</div>
+    <!--  -->
+        <div class="container p-5">
+          <div class="collapse collapse-vertical text-black " id="collapseWidthExample">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger fs-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Mucho
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <!-- modal content -->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Más de lo que imaginas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" class="btn btn-danger"></a>
+                  </div>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
   </main>
 
   <footer class="mt-auto">
