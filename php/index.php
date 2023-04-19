@@ -1,124 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php 
+  include('Backend/conexion.php');
+  $query = "select * from imagenes";
+  $resultado = mysqli_query($conn,$query);
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Galer&iacute;a de im&aacute;genes con zoom lightbox jquery</title>
-<link rel="stylesheet" type="text/css" href="lightbox/css/jquery.lightbox-0.5.css"/>
-<link rel="stylesheet" type="text/css" href="demo.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
-
 <body>
-
-<div class= "container-fluid text-white">
-
-<header> 
-<nav class="bg-dark">
-  <div class="container-fluid text-center p-3 text-light">
-    <span class="">
-      <h1>Fotitos tuyas</h1>
-    </span>
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-4">
+         <h1 class="text-white">Subir imagen</h1>
+         <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="my-input">Seleccione una Imagen</label>
+              <input id="my-input"  type="file" name="imagen">
+          </div>
+          <div class="form-group">
+              <label for="my-input">Titulo de la Imagen</label>
+              <input id="my-input" class="form-control" type="text" name="titulo">
+          </div>
+          <?php if(isset($_SESSION['mensaje'])){ ?>
+          <div class="alert alert-<?php echo $_SESSION['tipo'] ?> alert-dismissible fade show" role="alert">
+         <strong><?php echo $_SESSION['mensaje']; ?></strong> 
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+     </button>
+       </div>
+          <?php session_unset(); } ?>
+          <input type="submit" value="Guardar" class="btn btn-primary" name="Guardar">
+         </form>
+       </div>
+       <div class="col-lg-8">
+           <h1 class="text-primary text-center">Galeria de Imagenes</h1>
+           <hr>
+           <div class="card-columns">
+               <?php foreach($resultado as $row){ ?>
+         <div class="card">
+      <img src="Backend/imagenes/<?php echo $row['imagen']; ?>" class="card-img-top" alt="...">
+       <div class="card-body">
+      <h5 class="card-title"><strong><?php echo $row['nombre']; ?></strong></h5>
+    </div>
+               
   </div>
-</nav>
-</header>
-<h1>Fotitos tuyas</h1>
-</div>
+  <?php }?>
+       </div>
+    </div>
+  </div>
 
-<?php
-$directory = 'images';
 
-//Si se quiere subir un archivo
-if (isset($_POST['nuevaimagen'])) {
-	$correcto = true;
-	$archivo = $_FILES['archivo']['name'];
-	if (isset($archivo)) {
-		if ($archivo != "") {
-			$tipo = $_FILES['archivo']['type'];
-			$tamano = $_FILES['archivo']['size'];
-			$temp = $_FILES['archivo']['tmp_name'];
-			//Se comprueba si el archivo a cargar es correcto
-			if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
-				echo '<div class="error"><b>Error. La extensi�n o el tama�o de los archivos no es correcta.<br/>
-				- Se permiten archivos .gif, .jpg, .png. y de 200 kb como m�ximo.</b></div>';
-				$correcto = false;
-			}
-			else {
-				//Se comprueba si se guarda correctamente
-				if (move_uploaded_file($temp, $directory.'/'.$archivo)) {
-					chmod($directory.'/'.$archivo, 0777);
-				}
-				else {
-					echo '<div class="error"><b>Ocurri� alg�n error al subir el fichero. No pudo guardarse.</b></div>';
-					$correcto = false;
-				}
-			}
-		}
-	}
-	if ($correcto)
-		echo '<div class="correcto"><b>La imagen se ha subido correctamente.</b></div>';
-	echo '<br>';
-}
 
-?>
-
-<div id="gallery">
-<div >
-<?php
-
-$allowed_types=array('jpg','jpeg','gif','png');
-$file_parts=array();
-$ext='';
-$title='';
-$i=0;
-
-$dir_handle = @opendir($directory) or die("Hay un error con el directorio de im�genes!");
-
-while ($file = readdir($dir_handle))
-{
-	if($file=='.' || $file == '..') continue;
-
-	$file_parts = explode('.',$file);
-	$ext = strtolower(array_pop($file_parts));
-
-	$title = implode('.',$file_parts);
-	$title = htmlspecialchars($title);
-
-	$nomargin='';
-
-	if(in_array($ext,$allowed_types))
-	{
-		if(($i+1)%3==0) $nomargin='nomargin';
-
-		echo '
-		<div class="pic '.$nomargin.'" style="background:url('.$directory.'/'.$file.') no-repeat 50% 50%;">
-		<a href="'.$directory.'/'.$file.'" title="'.$title.'" target="_blank">'.$title.'</a>
-		</div>';
-
-		$i++;
-	}
-}
-
-closedir($dir_handle);
-
-?>
-</div>
-<div class="clear"></div>
-</div>
-
-<div id="footer">
-	<form action="index.php" method="POST" enctype="multipart/form-data">
-		<input class="" type="hidden" name="MAX_FILE_SIZE" value="1000000"/>
-		<p1 class="text-light"> Subir una nueva imagen a la galeria </p1> <input name="archivo" id="archivo" type="file" class="text btn btn-danger"/>
-		<input type="submit" name="nuevaimagen" value="Subir"/>
-	</form>
-</div>
-
-</div>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
