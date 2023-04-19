@@ -3,24 +3,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Galer&iacute;a de im&aacute;genes con zoom lightbox jquery</title>
-<link rel="stylesheet" type="text/css" href="lightbox/css/jquery.lightbox-0.5.css" />
-<link rel="stylesheet" type="text/css" href="demo.css" />
+<link rel="stylesheet" type="text/css" href="lightbox/css/jquery.lightbox-0.5.css"/>
+<link rel="stylesheet" type="text/css" href="demo.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="lightbox/js/jquery.lightbox-0.5.pack.js"></script>
 <script type="text/javascript" src="script.js"></script>
 
 </head>
 
 <body>
 
-<div id="container">
+<div class= "container-fluid text-white">
 
-<div id="heading">
-<h1>Galer&iacute;a de fotos</h1>
+<header> 
+<nav class="bg-dark">
+  <div class="container-fluid text-center p-3 text-light">
+    <span class="">
+      <h1>Fotitos tuyas</h1>
+    </span>
+  </div>
+</nav>
+</header>
+<h1>Fotitos tuyas</h1>
 </div>
 
 <?php
@@ -61,7 +67,7 @@ if (isset($_POST['nuevaimagen'])) {
 ?>
 
 <div id="gallery">
-<div style="OVERFLOW: auto; HEIGHT: 380px">
+<div >
 <?php
 
 $allowed_types=array('jpg','jpeg','gif','png');
@@ -105,9 +111,9 @@ closedir($dir_handle);
 </div>
 
 <div id="footer">
-	<form action="index.php" method="POST" enctype="multipart/form-data"/>
-		<input type="hidden" name="MAX_FILE_SIZE" value="1000000"/>
-		Subir una nueva imagen a la galer&iacute;a: <input name="archivo" id="archivo" type="file" class="text"/>
+	<form action="index.php" method="POST" enctype="multipart/form-data">
+		<input class="" type="hidden" name="MAX_FILE_SIZE" value="1000000"/>
+		<p1 class="text-light"> Subir una nueva imagen a la galeria </p1> <input name="archivo" id="archivo" type="file" class="text btn btn-danger"/>
 		<input type="submit" name="nuevaimagen" value="Subir"/>
 	</form>
 </div>
