@@ -10,14 +10,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>TE AMO</title>
+    <!--  -->
+    <link rel="apple-touch-icon" href="../img/logo.ico">
+    <link rel="shortcut icon" href="../img/logo.ico">
+    <link rel="icon" sizes="192x192" href="../img/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container p-5">
     <div class="row">
        <div class="col-lg-4">
-         <h1 class="text-white">Subir imagen</h1>
+         <h1 class="text-dark">Subir imagen</h1>
          <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
               <label for="my-input">Seleccione una Imagen</label>
