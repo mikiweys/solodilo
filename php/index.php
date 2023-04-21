@@ -8,31 +8,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <!--  -->
+    <link rel="stylesheet" href="css/styles.css">
     <title>TE AMO</title>
     <!--  -->
     <link rel="apple-touch-icon" href="../img/logo.ico">
     <link rel="shortcut icon" href="../img/logo.ico">
     <link rel="icon" sizes="192x192" href="../img/logo.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-  <div class="container p-5">
+
+<!--  -->
+<nav class="navbar navbar-expand-lg text-center shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand rojo blanco fuente1 px-5" href="../index.html">Galeria de mi novia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Te amo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">3</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--  -->
+  <div class="container p-5 text-center">
     <div class="row">
        <div class="col-lg-4">
-         <h1 class="text-dark">Subir imagen</h1>
+         <h1 class="mano display-1 p-5">Sube la imagen que desees junto con un titulo jsakldn <3</h1>
          <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-              <label for="my-input">Seleccione una Imagen</label>
-              <input id="my-input"  type="file" name="imagen">
+          <div class="form-group my-5">
+              <label for="my-input" class="fs-2 fuente1">Selecciona una Imagen amor</label>
+              <input id="my-input" type="file" name="imagen" class="fuente1">
           </div>
           <div class="form-group">
-              <label for="my-input">Titulo de la Imagen</label>
+              <label for="my-input" class="fs-2 py-1 fuente1">Aqui va el titulo de tu imagen</label>
               <input id="my-input" class="form-control" type="text" name="titulo">
           </div>
           <?php if(isset($_SESSION['mensaje'])){ ?>
@@ -43,12 +74,11 @@
      </button>
        </div>
           <?php session_unset(); } ?>
-          <input type="submit" value="Guardar" class="btn btn-primary" name="Guardar">
+          <input type="submit" value="Guardar" class="btn btn-danger mb-5" name="Guardar">
          </form>
        </div>
-       <div class="col-lg-8">
-           <h1 class="text-primary text-center">Galeria de Imagenes</h1>
-           <hr>
+       <div class="col-lg-8 pt-5 mt-5">
+           <h1 class=" display-5 text-center mano azulpastel p-5">Galeria de Imagenes</h1>
            <div class="card-columns">
                <?php foreach($resultado as $row){ ?>
          <div class="card">
@@ -65,8 +95,8 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `imagenes` (
-  `cod_imagen` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `imagen` varchar(50) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `imagenes` (
 -- Volcado de datos para la tabla `imagenes`
 --
 
-INSERT INTO `imagenes` (`cod_imagen`, `imagen`, `nombre`) VALUES
+INSERT INTO `imagenes` (`id`, `imagen`, `nombre`) VALUES
 (1, 'coffee-4518354_960_720.webp', 'colores'),
 (2, 'dog-5357794__340.webp', 'perrito'),
 (3, 'snail-5352510__340.webp', 'caracol');
@@ -51,7 +51,7 @@ INSERT INTO `imagenes` (`cod_imagen`, `imagen`, `nombre`) VALUES
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  ADD PRIMARY KEY (`cod_imagen`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -61,7 +61,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `cod_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

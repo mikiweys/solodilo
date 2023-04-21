@@ -1,0 +1,29 @@
+body {
+    padding:0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #FEABDA;
+    color: whitesmoke;
+    font-family: 'Ysabeau', sans-serif;
+  }
+  .nolista {
+    list-style: none;
+  }
+  .amararo {
+    color: #fdf9c4; 
+  }
+  .blanco {
+    color: whitesmoke; 
+  }
+  .rojo:hover {
+    color: #E04261;
+  }
+  .fuente1 {
+    font-family: 'Ysabeau', sans-serif;
+  }
+  .azulpastel{
+    color: #d8f8e1;
+  }
+  .mano{
+    font-family: 'Gloria Hallelujah', cursive;
+  }

@@ -18,7 +18,7 @@ if(isset($_POST['Guardar'])){
          $resultado = mysqli_query($conn,$query);
          if($resultado){
               move_uploaded_file($temp,'imagenes/'.$imagen);   
-             $_SESSION['mensaje'] = 'se ha subido correctamente';
+             $_SESSION['mensaje'] = 'Lo hiciste muy bien mi vida!';
              $_SESSION['tipo'] = 'success';
              header('location:../index.php');
          }else{
