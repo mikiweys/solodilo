@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <!--  -->
     <link rel="stylesheet" href="css/styles.css">
-    <title>TE AMO</title>
+    <title>PAGINA PARA APRECIAR LO HERMOSA QUE ES LA BABOSA DE MI NOVIA Y OTRAS COSAS, ash t amo mucho</title>
     <!--  -->
     <link rel="apple-touch-icon" href="../img/logo.ico">
     <link rel="shortcut icon" href="../img/logo.ico">
@@ -37,16 +37,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Te amo</a>
+          <a class="nav-link text-white" href="../index.html">Te amo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">1</a>
+          <a class="nav-link text-white" href="../html/1.html">1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">3</a>
+          <a class="nav-link text-white" href="../html/2.html">2</a>
         </li>
       </ul>
     </div>
@@ -59,7 +56,7 @@
          <h1 class="mano display-1 p-5">Sube la imagen que desees junto con un titulo jsakldn <3</h1>
          <form action="Backend/subir.php" method="post" enctype="multipart/form-data">
           <div class="form-group my-5">
-              <label for="my-input" class="fs-2 fuente1">Selecciona una Imagen amor</label>
+              <label for="my-input" class="fs-2 fuente1 pb-5">Selecciona una Imagen amor</label>
               <input id="my-input" type="file" name="imagen" class="fuente1">
           </div>
           <div class="form-group">
@@ -78,7 +75,7 @@
          </form>
        </div>
        <div class="col-lg-8 pt-5 mt-5">
-           <h1 class=" display-5 text-center mano azulpastel p-5">Galeria de Imagenes</h1>
+           <h1 class=" display-5 text-center mano p-5">Galeria de Imagenes</h1>
            <div class="card-columns">
                <?php foreach($resultado as $row){ ?>
          <div class="card">
